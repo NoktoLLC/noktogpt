@@ -1,0 +1,1812 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NOKTO GROUP creates complete website overhauls and campaign subdomains for local small businesses.">
+<title>NOKTO GROUP | The NOKTO Effect</title>
+<style>
+:root {
+  color-scheme: dark;
+  --void: #030406;
+  --night: #07090d;
+  --charcoal: #10131a;
+  --panel: rgba(14, 17, 24, 0.76);
+  --paper: #f5f1e8;
+  --muted: #a6a9b3;
+  --dim: #6c717f;
+  --red: #ed1717;
+  --red-soft: rgba(237, 23, 23, 0.24);
+  --gold: #c9a75c;
+  --gold-soft: rgba(201, 167, 92, 0.18);
+  --lime: #c7ff2a;
+  --blue: #576cff;
+  --line: rgba(245, 241, 232, 0.12);
+  --line-strong: rgba(245, 241, 232, 0.22);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  background: var(--void);
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(237, 23, 23, 0.18), transparent 34rem),
+    radial-gradient(circle at 82% 18%, rgba(201, 167, 92, 0.13), transparent 31rem),
+    radial-gradient(circle at 20% 86%, rgba(87, 108, 255, 0.16), transparent 28rem),
+    var(--void);
+  color: var(--paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23noise)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+img, video, canvas { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+.page {
+  position: relative;
+  isolation: isolate;
+}
+
+.shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.nav {
+  position: fixed;
+  top: 18px;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  pointer-events: none;
+}
+
+.nav__inner {
+  pointer-events: auto;
+  width: min(900px, calc(100% - 28px));
+  margin: 0 auto;
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 22px;
+  padding: 8px 10px 8px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(7, 9, 13, 0.78);
+  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px) saturate(142%);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.brand__mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 70% 42%, var(--void) 0 25%, transparent 26%),
+    var(--red);
+  box-shadow: 0 0 22px rgba(237, 23, 23, 0.85);
+}
+
+.brand span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav__links a {
+  padding: 8px 10px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.nav__links a:hover,
+.nav__links a:focus-visible {
+  color: var(--paper);
+  background: rgba(255, 255, 255, 0.07);
+  outline: none;
+}
+
+.nav__cta {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--red);
+  color: white;
+  font-weight: 900;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.12) inset, 0 14px 42px rgba(237, 23, 23, 0.28);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.nav__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.15) inset, 0 18px 50px rgba(237, 23, 23, 0.38);
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding: 122px 0 44px;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+}
+
+.hero__video,
+.hero__canvas,
+.hero__shade,
+.hero__rings,
+.hero__grid {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.42;
+  filter: saturate(1.12) contrast(1.16);
+}
+
+.hero__canvas {
+  width: 100%;
+  height: 100%;
+  opacity: 0.82;
+}
+
+.hero__shade {
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(3, 4, 6, 0.96), rgba(3, 4, 6, 0.74) 44%, rgba(3, 4, 6, 0.38) 100%),
+    linear-gradient(180deg, rgba(3, 4, 6, 0.46), rgba(3, 4, 6, 0.2) 34%, rgba(3, 4, 6, 0.92) 100%);
+}
+
+.hero__grid {
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(245, 241, 232, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 241, 232, 0.035) 1px, transparent 1px);
+  background-size: 78px 78px;
+  mask-image: radial-gradient(circle at 42% 42%, black, transparent 78%);
+}
+
+.hero__rings {
+  pointer-events: none;
+}
+
+.eclipse {
+  position: absolute;
+  right: max(4vw, 34px);
+  top: 18%;
+  width: min(38vw, 500px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, var(--void) 0 47%, transparent 48%),
+    conic-gradient(from 28deg, rgba(237, 23, 23, 0), rgba(237, 23, 23, 0.86), rgba(201, 167, 92, 0.88), rgba(199, 255, 42, 0.12), rgba(237, 23, 23, 0));
+  opacity: 0.9;
+  filter: drop-shadow(0 0 38px rgba(237, 23, 23, 0.28));
+  animation: eclipseSpin 24s linear infinite;
+}
+
+.eclipse::before,
+.eclipse::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 241, 232, 0.1);
+}
+
+.eclipse::after {
+  inset: 18%;
+  border-color: rgba(201, 167, 92, 0.22);
+  transform: rotate(23deg);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
+  gap: 42px;
+  align-items: end;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  margin-bottom: 22px;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(245, 241, 232, 0.04);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.kicker::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 18px rgba(237, 23, 23, 0.85);
+}
+
+.hero h1 {
+  max-width: 860px;
+  margin: 0;
+  font-size: 92px;
+  line-height: 0.93;
+  font-weight: 950;
+  text-wrap: balance;
+}
+
+.hero h1 em {
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero__lead {
+  max-width: 690px;
+  margin: 26px 0 0;
+  color: #c8cbd3;
+  font-size: 19px;
+}
+
+.hero__lead strong {
+  color: var(--paper);
+  font-weight: 850;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.button {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(245, 241, 232, 0.05);
+  color: var(--paper);
+  font-weight: 900;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 241, 232, 0.36);
+  background: rgba(245, 241, 232, 0.08);
+}
+
+.button--primary {
+  border-color: transparent;
+  background: var(--red);
+  color: white;
+  box-shadow: 0 18px 52px rgba(237, 23, 23, 0.32);
+}
+
+.button--primary span {
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: white;
+  color: var(--red);
+}
+
+.hero__panel {
+  align-self: stretch;
+  display: grid;
+  align-content: end;
+  gap: 14px;
+}
+
+.signal {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(16, 19, 26, 0.82), rgba(7, 9, 13, 0.64));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.signal__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--dim);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.signal__body { padding: 18px; }
+
+.domain-map {
+  position: relative;
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+}
+
+.domain-core {
+  position: relative;
+  z-index: 2;
+  width: 152px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 241, 232, 0.15);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(237, 23, 23, 0.1), transparent 58%),
+    #050608;
+  box-shadow: inset 0 0 44px rgba(237, 23, 23, 0.22), 0 0 60px rgba(237, 23, 23, 0.16);
+  text-align: center;
+  font-weight: 950;
+}
+
+.domain-core small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.orbit {
+  position: absolute;
+  inset: 26px;
+  border: 1px dashed rgba(201, 167, 92, 0.25);
+  border-radius: 50%;
+  animation: orbitSpin 22s linear infinite;
+}
+
+.orbit:nth-child(2) {
+  inset: 52px;
+  animation-duration: 28s;
+  animation-direction: reverse;
+  border-color: rgba(237, 23, 23, 0.2);
+}
+
+.subnode {
+  position: absolute;
+  min-width: 118px;
+  padding: 7px 9px;
+  border: 1px solid rgba(245, 241, 232, 0.12);
+  border-radius: 999px;
+  background: rgba(7, 9, 13, 0.88);
+  color: #dfe1e7;
+  font-size: 11px;
+  font-weight: 850;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+  animation: orbitCounter 22s linear infinite;
+}
+
+.orbit:nth-child(2) .subnode {
+  animation-duration: 28s;
+  animation-direction: reverse;
+}
+
+.subnode--a { top: -14px; left: 50%; transform: translateX(-50%); }
+.subnode--b { right: -30px; top: 54%; }
+.subnode--c { bottom: -12px; left: 14%; }
+.subnode--d { left: -30px; top: 32%; }
+
+.signal__note {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stat {
+  min-height: 86px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(245, 241, 232, 0.04);
+}
+
+.stat strong {
+  display: block;
+  color: var(--paper);
+  font-size: 26px;
+  line-height: 1;
+}
+
+.stat span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.ticker {
+  position: relative;
+  z-index: 3;
+  margin-top: 46px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(3, 4, 6, 0.44);
+}
+
+.ticker__track {
+  width: max-content;
+  display: flex;
+  gap: 34px;
+  padding: 13px 0;
+  animation: ticker 34s linear infinite;
+}
+
+.ticker__track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.ticker__track span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.section {
+  position: relative;
+  padding: 94px 0;
+  scroll-margin-top: 100px;
+}
+
+.section--tight { padding-top: 54px; }
+
+.section__head {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(300px, 0.52fr);
+  gap: 42px;
+  align-items: end;
+  margin-bottom: 36px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 15px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+}
+
+.section h2 {
+  margin: 0;
+  font-size: 52px;
+  line-height: 1.02;
+  font-weight: 950;
+  text-wrap: balance;
+}
+
+.section h2 em {
+  color: var(--red);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.section__intro {
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.effect-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: 18px;
+}
+
+.before-after {
+  position: relative;
+  min-height: 560px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--night);
+  box-shadow: var(--shadow);
+}
+
+.ba-screen {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.ba-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(3, 4, 6, 0.8);
+}
+
+.dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--dim);
+}
+
+.urlbar {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(245, 241, 232, 0.05);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ba-before {
+  z-index: 1;
+  background:
+    linear-gradient(135deg, rgba(66, 46, 28, 0.64), transparent),
+    #14100d;
+  color: #e9d4b4;
+}
+
+.ba-before .old-site {
+  padding: 26px;
+  display: grid;
+  gap: 18px;
+}
+
+.old-hero {
+  min-height: 130px;
+  display: grid;
+  align-content: center;
+  padding: 22px;
+  border: 1px solid rgba(233, 212, 180, 0.22);
+  background: rgba(233, 212, 180, 0.06);
+}
+
+.old-hero h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+}
+
+.old-hero p,
+.old-copy p {
+  margin: 8px 0 0;
+  color: rgba(233, 212, 180, 0.7);
+}
+
+.old-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.old-cols div,
+.old-copy {
+  min-height: 96px;
+  padding: 14px;
+  border: 1px solid rgba(233, 212, 180, 0.18);
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.old-cols b {
+  display: block;
+  margin-bottom: 8px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.old-copy {
+  min-height: 170px;
+}
+
+.ba-after {
+  z-index: 2;
+  width: var(--split, 58%);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 16%, rgba(237, 23, 23, 0.24), transparent 18rem),
+    linear-gradient(135deg, #07090d, #10131a 64%, #050608);
+  color: var(--paper);
+  box-shadow: 18px 0 42px rgba(0,0,0,0.48);
+}
+
+.new-site {
+  width: calc(100vw - 40px);
+  max-width: 1080px;
+  padding: 26px;
+}
+
+.new-hero {
+  min-height: 200px;
+  display: grid;
+  align-content: end;
+  gap: 14px;
+  padding: 24px;
+  border: 1px solid rgba(245, 241, 232, 0.12);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 88% 16%, rgba(201, 167, 92, 0.36), transparent 12rem),
+    linear-gradient(135deg, rgba(237,23,23,0.2), rgba(245,241,232,0.04));
+}
+
+.new-hero h3 {
+  max-width: 480px;
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.02;
+}
+
+.new-hero p {
+  max-width: 470px;
+  margin: 0;
+  color: #d3d6dd;
+}
+
+.new-stack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.new-stack div {
+  min-height: 110px;
+  padding: 15px;
+  border: 1px solid rgba(245, 241, 232, 0.12);
+  border-radius: 8px;
+  background: rgba(245, 241, 232, 0.05);
+}
+
+.new-stack b {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ba-handle {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: var(--split, 58%);
+  width: 2px;
+  background: linear-gradient(transparent, var(--red), var(--gold), transparent);
+  transform: translateX(-1px);
+  pointer-events: none;
+}
+
+.ba-handle::before {
+  content: "NOKTO Effect";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 128px;
+  min-height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--red);
+  color: white;
+  font-size: 12px;
+  font-weight: 950;
+  box-shadow: 0 18px 44px rgba(237,23,23,0.32);
+  transform: translate(-50%, -50%);
+}
+
+.ba-range {
+  position: absolute;
+  z-index: 8;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  width: calc(100% - 36px);
+  accent-color: var(--red);
+}
+
+.effect-copy {
+  display: grid;
+  gap: 14px;
+}
+
+.effect-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(245,241,232,0.07), rgba(245,241,232,0.03));
+}
+
+.effect-card strong {
+  display: block;
+  color: var(--paper);
+  font-size: 24px;
+  line-height: 1.12;
+}
+
+.effect-card p {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.service {
+  min-height: 280px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(245,241,232,0.07), rgba(245,241,232,0.025)),
+    var(--night);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201, 167, 92, 0.38);
+}
+
+.service__icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  background: rgba(237, 23, 23, 0.12);
+  color: var(--red);
+  font-weight: 950;
+}
+
+.service h3 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.14;
+}
+
+.service p {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.subdomain-stage {
+  position: relative;
+  min-height: 640px;
+  scroll-margin-top: 100px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(237, 23, 23, 0.14), transparent 28rem),
+    linear-gradient(180deg, rgba(245,241,232,0.02), rgba(245,241,232,0.055));
+}
+
+.subdomain-stage .shell {
+  min-height: 640px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.subdomain-copy h2 {
+  margin: 0;
+  font-size: 58px;
+  line-height: 1.02;
+}
+
+.subdomain-copy p {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.domain-visual {
+  position: relative;
+  min-height: 500px;
+  display: grid;
+  place-items: center;
+}
+
+.domain-visual::before {
+  content: "";
+  position: absolute;
+  width: min(92%, 470px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(245,241,232,0.12);
+  box-shadow:
+    0 0 0 70px rgba(245,241,232,0.02),
+    inset 0 0 80px rgba(201,167,92,0.08);
+}
+
+.domain-planet {
+  position: relative;
+  z-index: 3;
+  width: 210px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 72% 34%, rgba(255,255,255,0.13), transparent 16%),
+    radial-gradient(circle at 50% 50%, #0b0d12 0 46%, transparent 47%),
+    conic-gradient(from 0deg, var(--red), var(--gold), var(--lime), var(--red));
+  box-shadow: 0 0 80px rgba(237, 23, 23, 0.24);
+  text-align: center;
+  font-weight: 950;
+}
+
+.domain-planet span {
+  max-width: 130px;
+}
+
+.campaign-chip {
+  position: absolute;
+  z-index: 2;
+  width: 188px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(7, 9, 13, 0.88);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.34);
+  backdrop-filter: blur(16px);
+}
+
+.campaign-chip b {
+  display: block;
+  color: var(--paper);
+  font-size: 13px;
+}
+
+.campaign-chip span {
+  display: block;
+  margin-top: 5px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 850;
+  overflow-wrap: anywhere;
+}
+
+.campaign-chip small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.chip-a { top: 36px; left: 3%; animation: floatA 8s ease-in-out infinite; }
+.chip-b { top: 96px; right: 0; animation: floatB 9s ease-in-out infinite; }
+.chip-c { bottom: 70px; left: 0; animation: floatB 10s ease-in-out infinite; }
+.chip-d { bottom: 28px; right: 8%; animation: floatA 11s ease-in-out infinite; }
+
+.process {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.step {
+  position: relative;
+  min-height: 220px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(245,241,232,0.045);
+}
+
+.step::before {
+  content: attr(data-step);
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 26px;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--void);
+  font-weight: 950;
+}
+
+.step h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.step p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.work {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--night);
+}
+
+.work__visual {
+  min-height: 250px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 74% 22%, rgba(201, 167, 92, 0.24), transparent 12rem),
+    linear-gradient(135deg, rgba(237, 23, 23, 0.22), rgba(87, 108, 255, 0.12)),
+    #0b0d12;
+}
+
+.work__visual::before {
+  content: "";
+  position: absolute;
+  inset: 34px 28px;
+  border: 1px solid rgba(245,241,232,0.16);
+  border-radius: 8px;
+  background:
+    linear-gradient(rgba(245,241,232,0.1) 0 30px, transparent 31px),
+    linear-gradient(90deg, rgba(245,241,232,0.07), transparent 32%),
+    rgba(245,241,232,0.035);
+}
+
+.work__visual::after {
+  content: "";
+  position: absolute;
+  left: 48px;
+  right: 70px;
+  bottom: 54px;
+  height: 56px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--red), var(--gold));
+  box-shadow: 0 20px 50px rgba(237,23,23,0.2);
+}
+
+.work__body {
+  padding: 20px;
+}
+
+.work__body h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.work__body p {
+  margin: 9px 0 0;
+  color: var(--muted);
+}
+
+.impact {
+  display: grid;
+  grid-template-columns: 0.78fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.quote {
+  min-height: 420px;
+  display: grid;
+  align-content: end;
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 84% 16%, rgba(237,23,23,0.26), transparent 20rem),
+    linear-gradient(180deg, rgba(245,241,232,0.07), rgba(245,241,232,0.025));
+}
+
+.quote p {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.18;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 24px;
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 850;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.metric {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(245,241,232,0.045);
+}
+
+.metric strong {
+  display: block;
+  color: var(--paper);
+  font-size: 46px;
+  line-height: 1;
+}
+
+.metric span {
+  display: block;
+  margin-top: 14px;
+  color: var(--muted);
+}
+
+.cta {
+  padding: 86px 0;
+  background:
+    radial-gradient(circle at 72% 20%, rgba(237,23,23,0.24), transparent 24rem),
+    linear-gradient(180deg, rgba(245,241,232,0.04), rgba(245,241,232,0.08));
+}
+
+.cta__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.62fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.cta h2 {
+  margin: 0;
+  font-size: 64px;
+  line-height: 1;
+}
+
+.cta p {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(7, 9, 13, 0.68);
+  box-shadow: var(--shadow);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(245,241,232,0.13);
+  border-radius: 8px;
+  background: rgba(245,241,232,0.055);
+  color: var(--paper);
+  font: inherit;
+  padding: 13px 12px;
+  outline: none;
+}
+
+.field textarea {
+  min-height: 118px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: rgba(201,167,92,0.58);
+}
+
+.form button {
+  border: 0;
+  border-radius: 999px;
+  min-height: 52px;
+  background: var(--red);
+  color: white;
+  font: inherit;
+  font-weight: 950;
+  cursor: pointer;
+}
+
+.footer {
+  padding: 28px 0;
+  color: var(--dim);
+  font-size: 13px;
+}
+
+.footer .shell {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 640ms ease, transform 640ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes eclipseSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitCounter {
+  to { rotate: -360deg; }
+}
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes floatA {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(10px,-14px,0); }
+}
+
+@keyframes floatB {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(-12px,12px,0); }
+}
+
+@media (max-width: 1040px) {
+  .hero h1 { font-size: 72px; }
+  .hero__content,
+  .section__head,
+  .effect-grid,
+  .subdomain-stage .shell,
+  .impact,
+  .cta__layout {
+    grid-template-columns: 1fr;
+  }
+  .hero__panel { align-self: auto; }
+  .services,
+  .process { grid-template-columns: repeat(2, 1fr); }
+  .work-grid { grid-template-columns: 1fr 1fr; }
+  .eclipse { opacity: 0.54; }
+}
+
+@media (max-width: 760px) {
+  .shell { width: min(100% - 28px, 1180px); }
+  .nav__inner {
+    grid-template-columns: 1fr auto;
+    min-height: 54px;
+  }
+  .nav__links { display: none; }
+  .nav__cta { padding: 0 14px; font-size: 13px; }
+  .brand span { max-width: 135px; }
+  .hero {
+    padding-top: 108px;
+    min-height: auto;
+  }
+  .hero h1 { font-size: 52px; }
+  .hero__lead,
+  .section__intro,
+  .subdomain-copy p,
+  .cta p { font-size: 16px; }
+  .hero__actions .button { width: 100%; }
+  .hero__stats,
+  .services,
+  .process,
+  .work-grid,
+  .metrics,
+  .new-stack {
+    grid-template-columns: 1fr;
+  }
+  .section { padding: 72px 0; }
+  .section h2,
+  .subdomain-copy h2 { font-size: 38px; }
+  .cta h2 { font-size: 44px; }
+  .before-after { min-height: 620px; }
+  .old-cols { grid-template-columns: 1fr; }
+  .domain-visual { min-height: 560px; }
+  .campaign-chip {
+    position: relative;
+    inset: auto;
+    width: min(100%, 260px);
+    margin: 8px auto;
+    animation: none;
+  }
+  .domain-planet { margin: 20px auto; }
+  .domain-visual::before { width: 320px; }
+  .footer .shell { flex-direction: column; }
+}
+
+@media (max-width: 460px) {
+  .hero h1 { font-size: 42px; }
+  .hero__content { gap: 28px; }
+  .signal__body { padding: 14px; }
+  .domain-map { min-height: 255px; }
+  .domain-core { width: 132px; }
+  .subnode { min-width: 104px; font-size: 10px; }
+  .section h2,
+  .subdomain-copy h2 { font-size: 33px; }
+  .quote p { font-size: 26px; }
+  .metric strong { font-size: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="NOKTO GROUP home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span>NOKTO GROUP</span>
+      </a>
+      <div class="nav__links" aria-label="Sections">
+        <a href="#effect">Effect</a>
+        <a href="#services">Services</a>
+        <a href="#subdomains">Subdomains</a>
+        <a href="#work">Work</a>
+      </div>
+      <a class="nav__cta" href="#contact">Start a Project</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <video class="hero__video" src="assets/eclipse_nokto_final.mp4" autoplay muted loop playsinline poster="assets/nokto-group-logo.png" aria-hidden="true"></video>
+    <canvas class="hero__canvas" id="starfield" aria-hidden="true"></canvas>
+    <div class="hero__rings" aria-hidden="true"><div class="eclipse"></div></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__shade" aria-hidden="true"></div>
+
+    <div class="shell">
+      <div class="hero__content">
+        <div>
+          <span class="kicker">Now booking 2026 local business overhauls</span>
+          <h1>The <em>NOKTO Effect</em> makes old websites disappear.</h1>
+          <p class="hero__lead">NOKTO GROUP redesigns outdated websites for local small businesses, then turns one domain into a launchpad for focused landing pages, ads, email campaigns, and measurable growth.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#contact">Get the overhaul <span aria-hidden="true">+</span></a>
+            <a class="button" href="#subdomains">See subdomain strategy</a>
+          </div>
+        </div>
+
+        <aside class="hero__panel" aria-label="Domain campaign visualization">
+          <div class="signal">
+            <div class="signal__top">
+              <span>Domain unlocked</span>
+              <span>NOKTO SYSTEM</span>
+            </div>
+            <div class="signal__body">
+              <div class="domain-map">
+                <div class="orbit">
+                  <span class="subnode subnode--a">quote.yoursite.com</span>
+                  <span class="subnode subnode--b">spring.yoursite.com</span>
+                  <span class="subnode subnode--c">menu.yoursite.com</span>
+                  <span class="subnode subnode--d">event.yoursite.com</span>
+                </div>
+                <div class="orbit">
+                  <span class="subnode subnode--a">ads.yoursite.com</span>
+                  <span class="subnode subnode--c">vip.yoursite.com</span>
+                </div>
+                <div class="domain-core">yourdomain.com<small>already owned</small></div>
+              </div>
+              <p class="signal__note">If you already own a domain, campaign subdomains usually cost nothing extra at the domain level. NOKTO turns that overlooked advantage into targeted pages.</p>
+            </div>
+          </div>
+          <div class="hero__stats">
+            <div class="stat"><strong>14</strong><span>day launch rhythm</span></div>
+            <div class="stat"><strong>1</strong><span>domain, many campaigns</span></div>
+            <div class="stat"><strong>0</strong><span>template-site energy</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Website redesigns</span><span>Mobile-first rebuilds</span><span>Campaign subdomains</span><span>Landing pages</span><span>SEO foundations</span><span>Hosting and support</span>
+        <span>Website redesigns</span><span>Mobile-first rebuilds</span><span>Campaign subdomains</span><span>Landing pages</span><span>SEO foundations</span><span>Hosting and support</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="effect">
+      <div class="shell">
+        <div class="section__head reveal">
+          <div>
+            <span class="eyebrow">The transformation</span>
+            <h2>From forgotten website to <em>first impression weapon</em>.</h2>
+          </div>
+          <p class="section__intro">A NOKTO overhaul is more than making a page look nicer. We rebuild the structure, message, mobile experience, lead path, campaign pages, and ongoing support system around how local customers actually choose.</p>
+        </div>
+
+        <div class="effect-grid">
+          <div class="before-after reveal" id="beforeAfter" style="--split:58%">
+            <div class="ba-screen ba-before">
+              <div class="ba-top">
+                <span class="dots"><span></span><span></span><span></span></span>
+                <span class="urlbar">http://old-business-site.com</span>
+              </div>
+              <div class="old-site">
+                <div class="old-hero">
+                  <h3>Welcome To Our Website</h3>
+                  <p>Family owned. Call for information. Last updated 2014.</p>
+                </div>
+                <div class="old-cols">
+                  <div><b>Services</b>Click here to learn more about our services.</div>
+                  <div><b>Photos</b>Image coming soon.</div>
+                  <div><b>Contact</b>Email us or call during business hours.</div>
+                </div>
+                <div class="old-copy">
+                  <b>About Our Company</b>
+                  <p>Walls of text, broken spacing, no obvious next step, and a site that feels abandoned before the customer even calls.</p>
+                </div>
+              </div>
+            </div>
+            <div class="ba-screen ba-after">
+              <div class="ba-top">
+                <span class="dots"><span></span><span></span><span></span></span>
+                <span class="urlbar">https://yourdomain.com</span>
+              </div>
+              <div class="new-site">
+                <div class="new-hero">
+                  <h3>Local service, premium first impression.</h3>
+                  <p>Clear offer, instant trust, fast mobile paths, and a quote flow designed around the next customer.</p>
+                </div>
+                <div class="new-stack">
+                  <div><b>Book-ready homepage</b>Fast, polished, and built for calls, forms, and directions.</div>
+                  <div><b>Campaign pages</b>Subdomains for ads, seasonal offers, hiring, and events.</div>
+                  <div><b>Search foundation</b>Clean structure, local intent, metadata, and page speed.</div>
+                  <div><b>Support layer</b>Hosting, edits, monitoring, and monthly improvements.</div>
+                </div>
+              </div>
+            </div>
+            <div class="ba-handle" aria-hidden="true"></div>
+            <input class="ba-range" type="range" min="18" max="82" value="58" aria-label="Compare old website and NOKTO overhaul">
+          </div>
+
+          <div class="effect-copy">
+            <article class="effect-card reveal">
+              <strong>We replace the "I know a guy" website with a real operating asset.</strong>
+              <p>The new site does the job before you answer the phone: explain the offer, build trust, route leads, and make the business look alive.</p>
+            </article>
+            <article class="effect-card reveal">
+              <strong>Every rebuild creates a campaign engine.</strong>
+              <p>One main domain can branch into focused subdomains for promotions, hiring, seasonal services, QR codes, and ad traffic.</p>
+            </article>
+            <article class="effect-card reveal">
+              <strong>Local businesses get agency-level taste without agency drag.</strong>
+              <p>Strategy, design, copy, launch, hosting, and updates stay under one roof with a practical two-week build rhythm.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight" id="services">
+      <div class="shell">
+        <div class="section__head reveal">
+          <div>
+            <span class="eyebrow">What NOKTO builds</span>
+            <h2>Everything a small business needs to look current and convert.</h2>
+          </div>
+          <p class="section__intro">NOKTO is designed for contractors, restaurants, shops, clinics, salons, trades, venues, and family-run companies that have outgrown their old web presence.</p>
+        </div>
+
+        <div class="services">
+          <article class="service reveal">
+            <div class="service__icon">01</div>
+            <h3>Complete Website Overhauls</h3>
+            <p>Modern design, clean copy, fast pages, mobile layouts, trust builders, lead capture, and local search basics.</p>
+          </article>
+          <article class="service reveal">
+            <div class="service__icon">02</div>
+            <h3>Campaign Landing Pages</h3>
+            <p>Focused pages for ads, flyers, QR codes, seasonal promos, events, hiring, and special offers.</p>
+          </article>
+          <article class="service reveal">
+            <div class="service__icon">03</div>
+            <h3>Logo and Visual Refresh</h3>
+            <p>Sharper brand systems for businesses that do not need a rebrand agency, but do need to stop looking dated.</p>
+          </article>
+          <article class="service reveal">
+            <div class="service__icon">04</div>
+            <h3>Hosting and Support</h3>
+            <p>Launch help, hosting coordination, analytics, edits, performance checks, and ongoing web care.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="subdomain-stage" id="subdomains">
+      <div class="shell">
+        <div class="subdomain-copy reveal">
+          <span class="eyebrow">The overlooked advantage</span>
+          <h2>Your domain can become a whole campaign network.</h2>
+          <p>Most business owners do not realize it: owning a domain usually lets you create as many subdomains as you need without buying new domain names. NOKTO uses that to build targeted, memorable marketing pages under the brand you already own.</p>
+          <a class="button button--primary" href="#contact">Map my domain <span aria-hidden="true">+</span></a>
+        </div>
+
+        <div class="domain-visual reveal" aria-label="Examples of campaign subdomains">
+          <div class="campaign-chip chip-a">
+            <b>Seasonal offer</b>
+            <span>spring.yourdomain.com</span>
+            <small>Ad traffic lands on one exact offer.</small>
+          </div>
+          <div class="campaign-chip chip-b">
+            <b>Quote funnel</b>
+            <span>quote.yourdomain.com</span>
+            <small>A fast path for serious leads.</small>
+          </div>
+          <div class="domain-planet"><span>yourdomain.com</span></div>
+          <div class="campaign-chip chip-c">
+            <b>Hiring push</b>
+            <span>careers.yourdomain.com</span>
+            <small>Recruiting without cluttering the main site.</small>
+          </div>
+          <div class="campaign-chip chip-d">
+            <b>Local event</b>
+            <span>event.yourdomain.com</span>
+            <small>QR codes and flyers point somewhere clean.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="shell">
+        <div class="section__head reveal">
+          <div>
+            <span class="eyebrow">Launch rhythm</span>
+            <h2>Five moves. One clean emergence.</h2>
+          </div>
+          <p class="section__intro">The NOKTO Effect is built to be direct: audit the current site, define the new offer, rebuild, branch campaigns, then keep improving after launch.</p>
+        </div>
+
+        <div class="process">
+          <article class="step reveal" data-step="1"><h3>Audit</h3><p>We inspect the old website, domain, local search footprint, speed, copy, and conversion gaps.</p></article>
+          <article class="step reveal" data-step="2"><h3>Reposition</h3><p>We clarify what customers need to believe, see, and do in the first few seconds.</p></article>
+          <article class="step reveal" data-step="3"><h3>Overhaul</h3><p>We redesign the site around mobile-first trust, sharper visuals, and cleaner lead paths.</p></article>
+          <article class="step reveal" data-step="4"><h3>Branch</h3><p>We create campaign subdomains that focus promotions and make ad spend easier to track.</p></article>
+          <article class="step reveal" data-step="5"><h3>Support</h3><p>We stay close for updates, hosting, analytics, improvements, and future campaign launches.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="shell">
+        <div class="section__head reveal">
+          <div>
+            <span class="eyebrow">Designed for local proof</span>
+            <h2>Old-school businesses can still look unmistakably current.</h2>
+          </div>
+          <p class="section__intro">These concept directions show how NOKTO can translate everyday local categories into sharp digital presences that feel trustworthy, modern, and easy to act on.</p>
+        </div>
+
+        <div class="work-grid">
+          <article class="work reveal">
+            <div class="work__visual"></div>
+            <div class="work__body">
+              <h3>Contractor overhaul</h3>
+              <p>Service pages, quote subdomain, before-and-after gallery, and a mobile-first estimate path.</p>
+            </div>
+          </article>
+          <article class="work reveal">
+            <div class="work__visual"></div>
+            <div class="work__body">
+              <h3>Restaurant relaunch</h3>
+              <p>Menu hub, event landing pages, catering campaign, and QR-friendly subdomain structure.</p>
+            </div>
+          </article>
+          <article class="work reveal">
+            <div class="work__visual"></div>
+            <div class="work__body">
+              <h3>Clinic refresh</h3>
+              <p>Trust-first messaging, appointment flow, location SEO, and education pages built for search.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="impact">
+          <blockquote class="quote reveal">
+            <p>"The best local businesses are often hidden behind websites that make them look ten years behind. NOKTO fixes the perception gap."</p>
+            <cite>NOKTO GROUP LLC</cite>
+          </blockquote>
+          <div class="metrics">
+            <div class="metric reveal"><strong>01</strong><span>One team for design, copy, launch, hosting, and campaign pages.</span></div>
+            <div class="metric reveal"><strong>02</strong><span>Two-week launch rhythm for most focused local business rebuilds.</span></div>
+            <div class="metric reveal"><strong>03</strong><span>Three core outcomes: credibility, clarity, and conversion.</span></div>
+            <div class="metric reveal"><strong>MAX</strong><span>Subdomain campaign possibilities under the domain already owned.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="shell">
+        <div class="cta__layout">
+          <div class="reveal">
+            <span class="eyebrow">Start the NOKTO Effect</span>
+            <h2>Bring the old site into the eclipse.</h2>
+            <p>Send the current website, the business type, and the biggest growth goal. NOKTO will map the overhaul and the first subdomain campaign to launch with it.</p>
+            <div class="hero__actions">
+              <a class="button" href="mailto:hello@noktogroup.com">hello@noktogroup.com</a>
+              <a class="button" href="#top">Back to top</a>
+            </div>
+          </div>
+
+          <form class="form reveal" id="projectForm">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="website">Current website or domain</label>
+              <input id="website" name="website" autocomplete="url" placeholder="yourdomain.com">
+            </div>
+            <div class="field">
+              <label for="project">What needs to change?</label>
+              <textarea id="project" name="project" placeholder="Old website, new campaign, subdomain ideas, launch timing..."></textarea>
+            </div>
+            <button type="submit">Send project signal</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>NOKTO GROUP LLC</span>
+      <span>Website overhauls, campaign subdomains, and the NOKTO Effect.</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById("starfield");
+  const ctx = canvas.getContext("2d", { alpha: true });
+  let points = [];
+  let raf = 0;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = Math.floor(rect.width * dpr);
+    canvas.height = Math.floor(rect.height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.max(44, Math.min(98, Math.floor(rect.width / 18)));
+    points = Array.from({ length: count }, () => ({
+      x: Math.random() * rect.width,
+      y: Math.random() * rect.height,
+      vx: (Math.random() - 0.5) * 0.22,
+      vy: (Math.random() - 0.5) * 0.22,
+      r: Math.random() * 1.5 + 0.55
+    }));
+  }
+
+  function draw() {
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    ctx.clearRect(0, 0, w, h);
+    for (const p of points) {
+      if (!reduced) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -20) p.x = w + 20;
+        if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        if (p.y > h + 20) p.y = -20;
+      }
+    }
+    for (let i = 0; i < points.length; i++) {
+      for (let j = i + 1; j < points.length; j++) {
+        const a = points[i];
+        const b = points[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 132) {
+          const alpha = (1 - dist / 132) * 0.22;
+          ctx.strokeStyle = `rgba(201, 167, 92, ${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    for (const p of points) {
+      ctx.fillStyle = "rgba(245, 241, 232, 0.68)";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "rgba(237, 23, 23, 0.18)";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 4.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    if (!reduced) raf = requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw();
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(raf);
+    resize();
+    draw();
+  }, { passive: true });
+
+  const beforeAfter = document.getElementById("beforeAfter");
+  const range = beforeAfter.querySelector(".ba-range");
+  range.addEventListener("input", () => {
+    beforeAfter.style.setProperty("--split", `${range.value}%`);
+  });
+
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.16 });
+  reveals.forEach((el) => observer.observe(el));
+
+  const form = document.getElementById("projectForm");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const button = form.querySelector("button");
+    button.textContent = "Signal received";
+    button.disabled = true;
+  });
+})();
+</script>
+</body>
+</html>
